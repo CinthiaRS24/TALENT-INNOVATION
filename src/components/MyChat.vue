@@ -2,7 +2,12 @@
     <div>
         <p>Hola, soy el componente MyChat</p>
         
-        <v-btn small color="#white" >Chatea!</v-btn>
+        <v-btn  
+            color="secondary"
+            elevation="2"
+            depressed >
+            Chatea!
+        </v-btn>
         
 
     </div>

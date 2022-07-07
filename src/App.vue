@@ -1,17 +1,31 @@
 <template>
   <div>
     
-    <v-toolbar color="#002855" dark fixed app>
-      <v-toolbar-title>Talent Innovation</v-toolbar-title>
-    </v-toolbar>
-    
-    <v-footer color="indigo" app>
-      <span class="white--text">&copy; 2022</span>
-    </v-footer>
-
     <div id="app">
-      <router-view/>
+      <v-app>
+        <HomeView v-if="user"></HomeView>
+        <MyLogin v-else></MyLogin>
+        <!-- <router-view/> -->
+    </v-app>
+      
     </div>
   </div>
 </template>
 
+<script>
+import HomeView from './views/HomeView.vue'
+import MyLogin from './views/MyLogin.vue'
+import firebase from 'firebase/compat/app';
+
+export default {
+  name: 'App',
+  components: {
+    HomeView, MyLogin
+  },
+  data() {
+    return {
+      user: firebase.auth().currentUser
+    }
+  }
+}
+</script>
