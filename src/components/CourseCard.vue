@@ -36,9 +36,7 @@
             dense
           >
             <v-timeline-item
-              v-for="message in messages"
-              :key="message.time"
-              :color="message.color"
+ 
               small
             >
               <div>
@@ -87,9 +85,7 @@
             dense
           >
             <v-timeline-item
-              v-for="message in messages"
-              :key="message.time"
-              :color="message.color"
+
               small
             >
               <div>

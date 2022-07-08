@@ -2,7 +2,8 @@
     <v-container>
         <v-card color="#23436b" width="150">
             <p>Contactar con un mentor</p>
-            <v-btn  
+            <v-btn
+                @click="handlerChat()"  
                 color="secondary"
                 elevation="2"
                 depressed 
@@ -17,6 +18,11 @@
 <script>
 export default {
     name: "ChatsCard",
+    methods: {
+        handlerChat() {
+        this.$router.push('/chat')
+        }
+    },
 }
 </script>
 
