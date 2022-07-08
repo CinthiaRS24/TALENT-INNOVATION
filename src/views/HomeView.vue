@@ -1,16 +1,13 @@
 <template>
   <div>
-    <v-app-bar color="primary" dark fixed>
+    <!-- <v-app-bar color="primary" dark>
       <v-app-bar-title>Talent Innovation</v-app-bar-title>
-    </v-app-bar>
+    </v-app-bar> -->
     
+    <HeaderSection />
     <p>Soy la vista home {{user.displayName}}</p>
     <MyChat />
 
-    <v-footer color="primary" app>
-      <span class="white--text">&copy; 2022</span>
-    </v-footer>
-    
 
     <v-btn  
             color="primary"
@@ -25,6 +22,7 @@
 </template>
 
 <script>
+import HeaderSection from '@/components/HeaderSection.vue'
 import MyChat from '@/components/MyChat.vue'
 import firebase from 'firebase/compat/app';
 
@@ -37,7 +35,7 @@ import firebase from 'firebase/compat/app';
       }
     },
     components: {
-      MyChat
+      HeaderSection, MyChat
     },
     data() {
       return {

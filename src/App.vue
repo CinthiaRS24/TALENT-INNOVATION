@@ -2,9 +2,9 @@
   <div>
     
     <div id="app">
-      <v-app>
+      <v-app style="background: #002855;">
         <HomeView v-if="user"></HomeView>
-        <MyLogin v-else></MyLogin>
+        <LoginView v-else></LoginView>
         <!-- <router-view/> -->
     </v-app>
       
@@ -14,13 +14,13 @@
 
 <script>
 import HomeView from './views/HomeView.vue'
-import MyLogin from './views/MyLogin.vue'
+import LoginView from './views/LoginView.vue'
 import firebase from 'firebase/compat/app';
 
 export default {
   name: 'App',
   components: {
-    HomeView, MyLogin
+    HomeView, LoginView
   },
   data() {
     return {

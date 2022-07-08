@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-card>
         <p>Hola, soy el componente MyChat</p>
         
         <v-btn  
@@ -10,7 +10,7 @@
         </v-btn>
         
 
-    </div>
+    </v-card>
 
 </template>
 
