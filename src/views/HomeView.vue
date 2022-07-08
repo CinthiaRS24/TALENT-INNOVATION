@@ -5,6 +5,8 @@
 
     <CoursesSection />
 
+    <GradesCard /> 
+
     <p>Soy la vista home {{user.displayName}}</p>
 
     <MyChat />
@@ -25,6 +27,7 @@
 <script>
 import HeaderSection from '@/components/HeaderSection.vue'
 import CoursesSection from '@/components/CoursesSection.vue'
+import GradesCard from '@/components/GradesCard.vue'
 import MyChat from '@/components/MyChat.vue'
 import firebase from 'firebase/compat/app';
 
@@ -37,7 +40,7 @@ import firebase from 'firebase/compat/app';
       }
     },
     components: {
-      HeaderSection, CoursesSection, MyChat
+      HeaderSection, CoursesSection, GradesCard, MyChat
     },
     data() {
       return {
