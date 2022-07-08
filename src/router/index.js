@@ -7,8 +7,13 @@ import HomeView from '../views/HomeView.vue'
 Vue.use(VueRouter)
 
 const routes = [
+    {
+    path: '/login',
+    name: 'LoginView',
+    component: HomeView
+  },
   {
-    path: '/',
+    path: '/home',
     name: 'HomeView',
     component: HomeView
   },

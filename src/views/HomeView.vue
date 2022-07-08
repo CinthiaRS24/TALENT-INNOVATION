@@ -9,11 +9,9 @@
     <GradesCard />
 
     <NewsCard /> 
+
+    <ChatsCard />
     </v-container>
-
-    <p>Soy la vista home {{user.displayName}}</p>
-
-    <MyChat />
 
 
     <v-btn  
@@ -33,7 +31,7 @@ import HeaderSection from '@/components/HeaderSection.vue'
 import CoursesSection from '@/components/CoursesSection.vue'
 import GradesCard from '@/components/GradesCard.vue'
 import NewsCard from '@/components/NewsCard.vue'
-import MyChat from '@/components/MyChat.vue'
+import ChatsCard from '@/components/ChatsCard.vue'
 import firebase from 'firebase/compat/app';
 
   export default {
@@ -45,7 +43,7 @@ import firebase from 'firebase/compat/app';
       }
     },
     components: {
-      HeaderSection, CoursesSection, GradesCard, NewsCard, MyChat
+      HeaderSection, CoursesSection, GradesCard, NewsCard, ChatsCard
     },
     data() {
       return {

@@ -5,7 +5,7 @@
       <v-app style="background: #002855;">
         <HomeView v-if="user"></HomeView>
         <LoginView v-else></LoginView>
-        <!-- <router-view/> -->
+        <router-view/>
     </v-app>
       
     </div>
