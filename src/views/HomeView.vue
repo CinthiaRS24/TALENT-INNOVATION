@@ -5,7 +5,11 @@
 
     <CoursesSection />
 
-    <GradesCard /> 
+    <v-container d-flex>
+    <GradesCard />
+
+    <NewsCard /> 
+    </v-container>
 
     <p>Soy la vista home {{user.displayName}}</p>
 
@@ -28,6 +32,7 @@
 import HeaderSection from '@/components/HeaderSection.vue'
 import CoursesSection from '@/components/CoursesSection.vue'
 import GradesCard from '@/components/GradesCard.vue'
+import NewsCard from '@/components/NewsCard.vue'
 import MyChat from '@/components/MyChat.vue'
 import firebase from 'firebase/compat/app';
 
@@ -40,7 +45,7 @@ import firebase from 'firebase/compat/app';
       }
     },
     components: {
-      HeaderSection, CoursesSection, GradesCard, MyChat
+      HeaderSection, CoursesSection, GradesCard, NewsCard, MyChat
     },
     data() {
       return {
