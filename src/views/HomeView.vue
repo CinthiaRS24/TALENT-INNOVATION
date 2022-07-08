@@ -1,11 +1,12 @@
 <template>
   <div>
-    <!-- <v-app-bar color="primary" dark>
-      <v-app-bar-title>Talent Innovation</v-app-bar-title>
-    </v-app-bar> -->
     
     <HeaderSection />
+
+    <CoursesSection />
+
     <p>Soy la vista home {{user.displayName}}</p>
+
     <MyChat />
 
 
@@ -23,6 +24,7 @@
 
 <script>
 import HeaderSection from '@/components/HeaderSection.vue'
+import CoursesSection from '@/components/CoursesSection.vue'
 import MyChat from '@/components/MyChat.vue'
 import firebase from 'firebase/compat/app';
 
@@ -35,7 +37,7 @@ import firebase from 'firebase/compat/app';
       }
     },
     components: {
-      HeaderSection, MyChat
+      HeaderSection, CoursesSection, MyChat
     },
     data() {
       return {
