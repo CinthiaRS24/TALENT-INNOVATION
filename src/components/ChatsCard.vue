@@ -20,7 +20,7 @@ export default {
     name: "ChatsCard",
     methods: {
         handlerChat() {
-        this.$router.push('/chat')
+            this.$router.push('/chat')
         }
     },
 }

@@ -14,14 +14,6 @@
     </v-container>
 
 
-    <v-btn  
-            color="primary"
-            elevation="2"
-            depressed 
-            @click="logout"
-            >
-            Logout!
-        </v-btn>
   </div>
   
 </template>
@@ -36,12 +28,6 @@ import firebase from 'firebase/compat/app';
 
   export default {
     name: 'HomeView',
-    methods: {
-      logout() {
-        firebase.auth().signOut()
-          .catch(error => console.log(error))
-      }
-    },
     components: {
       HeaderSection, CoursesSection, GradesCard, NewsCard, ChatsCard
     },
