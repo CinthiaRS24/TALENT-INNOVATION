@@ -1,33 +1,55 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ChatView from '../views/ChatView.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import firebase from 'firebase/compat/app';
+import LoginView from '../views/LoginView.vue';
+import HomeView from '../views/HomeView.vue';
+import ChatView from '../views/ChatView.vue';
 
- 
-
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
-    {
-    path: '/login',
-    name: 'LoginView',
-    component: HomeView
+  {
+    path: '/',
+    name: 'login',
+    component: LoginView
   },
   {
     path: '/home',
-    name: 'HomeView',
-    component: HomeView
+    name: 'home',
+    component: HomeView,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
-    path: '/chat',
-    name: 'ChatView',
-    component: ChatView
+    path: '/chats/:mentorUID',
+    name: 'chat',
+    component: ChatView,
+    meta: {
+      requiresAuth: true
+    }
   },
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
   routes
-})
+});
 
-export default router
+/**
+ * If a route requires authentication and there is not an authenticated user,
+ * we go to the 'login' route. 
+ */
+router.beforeEach((to, from, next) => {
+  const currentUser = firebase.auth().currentUser;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  if (requiresAuth && !currentUser) {
+    console.log('Before Each: go to Login (there is not a currentUser)');
+    next({ name: 'login' });
+  } else {
+    next();
+  }
+});  
+
+export default router;

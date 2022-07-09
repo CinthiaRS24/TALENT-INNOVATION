@@ -6,13 +6,12 @@
     <CoursesSection />
 
     <v-container d-flex>
-    <GradesCard />
+      <GradesCard />
 
-    <NewsCard /> 
+      <NewsCard /> 
 
-    <ChatsCard />
+      <ChatsCard />
     </v-container>
-
 
   </div>
   

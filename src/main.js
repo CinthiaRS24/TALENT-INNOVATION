@@ -1,13 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import vuetify from '@/plugins/vuetify'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import vuetify from '@/plugins/vuetify';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 
-
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 const firebaseConfig = {
   apiKey: "AIzaSyB-Rikk_8ZqwmpZ37asWYoZAEs6B-MJEl4",
@@ -21,14 +20,17 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-//Esta función corre cada vez que el usuario inicia/cierra sesión
-firebase.auth().onAuthStateChanged((x) => {
-  console.log('x', x)
+/**
+ * We wait for Firebase Auth to let us know the initial Auth State.
+ */
+const unsubcribeAuth = firebase.auth().onAuthStateChanged(() => {
+  console.log('Vue instantiated');
+  
   new Vue({
     router,
     vuetify,
     render: h => h(App)
-  }).$mount('#app')
-})
+  }).$mount('#app');  
 
-
+  unsubcribeAuth();
+});

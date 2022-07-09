@@ -67,12 +67,15 @@ export default {
     },
     methods: {
         logout() {
-            firebase.auth().signOut()
-                .catch(error => console.log(error))
-            this.handlerLogin()
+            firebase.auth()
+                .signOut()
+                .then(() => {
+                    this.goToLogin();
+                })
+                .catch(error => console.log(error));
         },
-        handlerLogin() {
-            this.$router.push('/login')
+        goToLogin() {
+            this.$router.push({ name: 'login' });
         }
     },
 }
