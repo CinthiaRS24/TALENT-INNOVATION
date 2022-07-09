@@ -50,7 +50,7 @@ export default {
             user: firebase.auth().currentUser,
             db: firebase.firestore(),
             message: "",
-            chatBot: new ChatBot('Cinthia', 'Mentor Name')
+            chatBot: new ChatBot(firebase.auth().currentUser.displayName, "Mentor Name")
         }
     },
     methods: {
