@@ -1,11 +1,12 @@
 <template>
     <div>
         <HeaderSection />
-        <MyConversation />
-        <MentorsSection />
-        
+
+        <div class="d-flex">
+            <MyConversation />
+            <MentorsSection />
+        </div>
     </div>
-    
 </template>
 
 <script>
