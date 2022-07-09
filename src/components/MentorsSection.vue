@@ -10,6 +10,7 @@
         <p class="white--text font-weight-light text-center" v-else>
             Cargando ...
         </p>
+        
         <v-card color="#23436b" class="text-center" v-if="mentorSelected">
             <v-avatar size="55px">
                 <img
@@ -32,11 +33,14 @@
             </v-container>
         </v-card>
 
+        <p class="subtitle white--text font-weight-light ml-4">
+            Más mentores
+        </p>
+
         <v-container 
             v-for="(mentor, index) in mentors" 
             v-bind:key="'mentor-' + index"
         >
-            
             <v-btn color="#23436b" width="100%" height="65" class="rounded-lg" @click="goToChat(mentor.uid)">
                 <div>
                     <span class="white--text">{{ mentor.name }}</span>
@@ -98,6 +102,8 @@ export default {
                     mentorUID: clickedMentorUid
                 } 
             });
+
+            this.$emit('selected', clickedMentorUid);
         }
     }
 }
