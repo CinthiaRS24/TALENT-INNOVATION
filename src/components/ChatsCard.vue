@@ -7,11 +7,10 @@
                     <p class="headine white--text font-weight-light text-center mb-0">con un</p>
                     <p class="headine white--text font-weight-light text-center mb-0">mentor</p>
                 </div>
-                
 
                 <div>
-                <v-img
-                width="90"
+                    <v-img
+                        width="90"
                         src="../assets/chats.png"
                     >
                     </v-img>
@@ -19,7 +18,7 @@
             </div>
             
             <v-btn
-                @click="handlerChat()"  
+                @click="goToChat()"  
                 color="secondary"
                 elevation="2"
                 depressed 
@@ -28,7 +27,6 @@
                 Enviar mensaje
             </v-btn>
         </v-card>
-        
     </v-container>
 </template>
 
@@ -36,8 +34,13 @@
 export default {
     name: "ChatsCard",
     methods: {
-        handlerChat() {
-            this.$router.push('/chat')
+        goToChat() {
+            this.$router.push({ 
+                name: 'chat', 
+                params: {
+                    mentorUID: 'uc3hOywD3hCOXMCNyFZp'
+                } 
+            });
         }
     },
 }
