@@ -14,6 +14,14 @@ class BotMessage {
             console.log(alternative)
         });
     }
+
+    toJsObject() {
+        return {
+            message: this.message,
+            alternatives: this.alternatives,
+            createdAt: Date.now()
+        };
+    }
 }
 
 export default BotMessage;

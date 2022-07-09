@@ -54,23 +54,27 @@ export default {
         }
     },
     methods: {
-        sendMessage() {
-            const botMessage = this.chatBot.reply(this.message);
-            
-            if (botMessage) {
-                botMessage.print();
-            }
+        async sendMessage() {
 
-            /*const messageInfo = {
+            const chatRef = this.db.collection(`users/${this.user.uid}/chats/${this.mentorUID}/messages`); // Otra forma: this.db.collection("chats").document(`${this.user.uid}`).collection("messages").add(userMessage)
+
+            const userMessage = {
                 "userUID": this.user.uid,
                 "displayName": this.user.displayName,
                 "photoURL": this.user.photoURL,
                 "text": this.message,
-                "createdAt": Date.now(),
-            };*/
+                "createdAt": Date.now()
+            };
 
-            // Otra forma: this.db.collection("chats").document(`${this.user.uid}`).collection("messages").add(messageInfo)
-            // await this.db.collection(`users/${this.user.uid}/chats/${this.mentorUID}/messages`).add(messageInfo);
+            await chatRef.add(userMessage);
+
+
+            const botMessage = this.chatBot.reply(this.message);
+            
+            if (botMessage) {
+                botMessage.print();
+                await chatRef.add(botMessage.toJsObject());
+            }
 
             this.message = "";
 
