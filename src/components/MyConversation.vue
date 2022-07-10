@@ -33,7 +33,7 @@
 import firebase from 'firebase/compat/app';
 import ConversationMessage from '@/components/ConversationMessage.vue'
 import WelcomeMessage from '@/components/WelcomeMessage.vue'
-import ChatBot from '@/chatbot/ChatBot'
+//import ChatBot from '@/chatbot/ChatBot'
 
 export default {
     name: 'MyConversation',
@@ -43,14 +43,15 @@ export default {
     },
     props: [
         "messages",
-        "mentorUID"
+        "mentorUID",
+        "chatBot"
     ],
     data() {
         return {
             user: firebase.auth().currentUser,
             db: firebase.firestore(),
             message: "",
-            chatBot: new ChatBot(firebase.auth().currentUser.displayName, "Mentor Name")
+            //chatBot: new ChatBot(firebase.auth().currentUser.displayName, "NameTutor")
         }
     },
     methods: {
