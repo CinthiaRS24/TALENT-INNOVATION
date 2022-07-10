@@ -37,8 +37,6 @@ export default {
     },
     methods: {
         onMentorSelected(mentor) {
-            //console.log('onMentorSelected', selectedMentorUid);
-            
             this.mentorUID = mentor.uid;
             this.mentorName = mentor.name;
             console.log('mentoor', this.mentorObject)
