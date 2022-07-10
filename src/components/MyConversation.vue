@@ -1,32 +1,79 @@
 <template>
-<div>
-    <v-btn text small @click="goToHome">
-        Volver
-    </v-btn>
-    <p class="white--text text-center">Chat reciente</p>
-    <section class="text-center" style="background-color: rgb(35, 67, 107); border-radius: 10px;">
-        <main>
-            <WelcomeMessage v-if="messages.length === 0" />
+    <div>
+        <v-btn small outlined color="white" class="font-weight-light ml-13 mt-6" @click="goToHome">
+            <div >
+                <v-img
+                    width="20"
+                    src="../assets/back.png"
+                >
+                </v-img>
+            </div>
+            Volver
+        </v-btn>
 
-            <ConversationMessage 
-                v-for="(message, index) in messages"
-                :message="message"
-                v-bind:key="'conversation-message-' + index" />
+    
+        <p class="title font-weight-light white--text text-center mb-3">
+            Chat reciente
+        </p>
+    
+        <v-card class="text-center ml-12 rounded-lg" color="#23436b" width="900" height="440">
+            <div>
+                <WelcomeMessage v-if="messages.length === 0" />
 
-            <div ref="scrollable"></div>
-        </main>
+                <ConversationMessage 
+                    v-for="(message, index) in messages"
+                    :message="message"
+                    v-bind:key="'conversation-message-' + index"
+                />
 
-        <form v-on:submit.prevent="sendMessage">
-            <input v-model="message" type="text" placeholder="Escribe tu mensaje!"/>
-            <v-btn primary text :disabled="!message" type="submit">
-                Enviar
-            </v-btn>
-            <v-btn secondary text :disabled="messages.length === 0" type="button" @click="clearChat()">
-                Limpiar
-            </v-btn>
+                <div ref="scrollable"></div>
+            </div>
+        </v-card>
+
+        <form v-on:submit.prevent="sendMessage" style="margin-left:50px;">
+            <v-container class="d-flex pl-0 pr-0 pt-1">
+                <v-card class="mt-3 rounded-lg" color="#23436b" >
+                    <input 
+                        v-model="message" 
+                        class="pl-5 white--text font-weight-light" 
+                        type="text" 
+                        style="width:700px; height:30px" 
+                        placeholder="Escribir mensaje"
+                    />
+                </v-card>
+        
+                <v-btn 
+                    small outlined 
+                    color="primary" 
+                    class="pl-0 pr-0 ml-1 mt-3" 
+                    min-width="25">
+                    <v-img
+                        width="10px"
+                        src="../assets/attach.png"
+                    >
+                    </v-img>
+                </v-btn>
+            
+                <div class="ml-1">
+                    <v-btn 
+                        class="secondary rounded-lg mt-3" 
+                        small :disabled="!message" 
+                        type="submit"
+                    >
+                        Enviar
+                    </v-btn>
+                    <v-btn 
+                        class="secondary rounded-lg mt-3 ml-2" 
+                        small :disabled="messages.length === 0" 
+                        type="button" 
+                        @click="clearChat()"
+                    >
+                        Limpiar
+                    </v-btn>
+                </div>
+            </v-container>      
         </form>
-    </section>
-</div>
+    </div>
 </template>
 
 <script>
@@ -100,3 +147,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+input::placeholder {
+  font-size: 15px;
+  font-style: italic;
+}
+</style>
