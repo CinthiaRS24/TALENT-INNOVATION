@@ -34,7 +34,7 @@ Para el desarrollo de la aplicación, se utilizó las siguientes tecnologías:
   - CoursesSection
   - GradesCard
   - NewsCard
-  - CatsCard
+  - ChatsCard
 - Ruta: '/home'
 
 ### ChatView
