@@ -1,6 +1,13 @@
 # DOCUMENTACIÓN
 
-## Configuración del proyecto
+## Índice
+
+* [1. Configuración del proyecto](#1-configuración-del-proyecto)
+* [2. Tecnología](#2-tecnología)
+* [3. Vistas y rutas](#3-vistas-y-rutas)
+* [4. Componentes](#4-componentes)
+
+## 1. Configuración del proyecto
 
 `npm install`
 
@@ -12,14 +19,14 @@
 ### Compila y minifica para producción
 `npm run build`
 
-## Tecnología
+## 2. Tecnología
 Para el desarrollo de la aplicación, se utilizó las siguientes tecnologías:
 - JavaScript
 - VUE 2
 - Vuetify UI
 - Firebase
 
-## Vistas y rutas
+## 3. Vistas y rutas
 
 ### LoginView
 - Es la vista que aparece al entrar a la aplicación
@@ -45,7 +52,7 @@ Para el desarrollo de la aplicación, se utilizó las siguientes tecnologías:
   - MentorsSection
 - Ruta: '/chats/:mentorUID'
 
-## Componentes
+## 4. Componentes
 
 ### HeaderSection
 Es el header de la aplicación y contiene lo siguiente:
