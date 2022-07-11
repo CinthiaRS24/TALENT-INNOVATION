@@ -5,7 +5,7 @@
 
     <CoursesSection />
 
-    <v-container d-flex>
+    <v-container d-flex pt-0 pb-0>
       <GradesCard />
 
       <NewsCard /> 
@@ -14,7 +14,6 @@
     </v-container>
 
   </div>
-  
 </template>
 
 <script>
@@ -25,15 +24,15 @@ import NewsCard from '@/components/NewsCard.vue'
 import ChatsCard from '@/components/ChatsCard.vue'
 import firebase from 'firebase/compat/app';
 
-  export default {
-    name: 'HomeView',
-    components: {
-      HeaderSection, CoursesSection, GradesCard, NewsCard, ChatsCard
-    },
-    data() {
-      return {
-        user: firebase.auth().currentUser
-      }
+export default {
+  name: 'HomeView',
+  components: {
+    HeaderSection, CoursesSection, GradesCard, NewsCard, ChatsCard
+  },
+  data() {
+    return {
+      user: firebase.auth().currentUser
     }
   }
+}
 </script>

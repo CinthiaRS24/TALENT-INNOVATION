@@ -45,7 +45,6 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
   if (requiresAuth && !currentUser) {
-    console.log('Before Each: go to Login (there is not a currentUser)');
     next({ name: 'login' });
   } else {
     next();
