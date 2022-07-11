@@ -1,8 +1,13 @@
 <template>
     <v-container>
         <v-card color="#23436b" width="330" height="150" class="mr-auto ml-auto rounded-lg d-flex justify-space-around align-center pr-6 pl-6">
+            
             <div>
-                <p class="title white--text font-weight-light">Noticias</p>
+
+                <p class="title white--text font-weight-light">
+                    Noticias
+                </p>
+
                 <v-btn  
                     color="secondary"
                     elevation="2"
@@ -20,6 +25,7 @@
                 >
                 </v-img>
             </div>
+            
         </v-card>
     </v-container>
 </template>
