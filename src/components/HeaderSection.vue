@@ -1,13 +1,14 @@
 <template>
-    <v-app-bar color="primary" dark>
+    <v-app-bar color="primary">
+        
         <v-img
+            class="ml-6"
             max-width="70"
             src="../assets/logoTI.png"
         >
         </v-img>
 
         <v-spacer></v-spacer>
-
            
         <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
@@ -18,7 +19,9 @@
                     v-bind="attrs"
                     v-on="on"
                 >
-                    <span class="text-capitalize pr-3 font-weight-light">{{user.displayName}}</span>
+                    <span class="text-capitalize pr-3 font-weight-light">
+                        {{user.displayName}}
+                    </span>
                     <v-img
                         height="30"
                         width="30"
@@ -28,7 +31,8 @@
                     </v-img>
                 </v-btn>
             </template>
-            <v-list class="secondary"  :style="{'text-align':'center'}">
+
+            <v-list class="secondary" :style="{'text-align':'center'}">
                 <v-btn  
                     color="primary"
                     elevation="2"
@@ -36,11 +40,10 @@
                     @click="logout"
                     ml="10"
                 >
-                Logout
+                    Logout
                 </v-btn>
             </v-list>
         </v-menu>
-
 
         <v-btn
             color="primary"
@@ -60,10 +63,10 @@ import firebase from 'firebase/compat/app';
 
 export default {
     name: 'HeaderSection',
-     data() {
-      return {
-        user: firebase.auth().currentUser
-      }
+    data() {
+        return {
+            user: firebase.auth().currentUser
+        }
     },
     methods: {
         logout() {
