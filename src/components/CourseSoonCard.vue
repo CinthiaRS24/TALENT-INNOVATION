@@ -1,60 +1,174 @@
 <template>
-<v-container>
-    <v-row>
-    <v-card width="300" color="#23436b">
+  <v-container class="pt-0" style="width:390px;">
+    <v-hover v-slot="{ hover }">
+      <v-card 
+        :elevation="hover ? 12 : 2"
+        :class="{ 'on-hover': hover }" 
+        width="330" 
+        color="#23436b" 
+        class="mr-1 pb-2"
+      >
         <v-btn
-            color="#f8d155"
-            raised
-            rounded
-            small
+          color="#f8d155"
+          class="mt-3 ml-3"
+          raised
+          rounded
+          small
         >
-        NUEVO
+          NUEVO
         </v-btn>
 
-        <div>
-            <v-card-title>
-            CURSO SOON
-            </v-card-title>
-            <p>Curso</p>
-            <v-img>
-                Foco
-            </v-img>
-        </div>
+        <div class="d-flex justify-space-around mt-3">
 
-        <p>Descripcion</p>
-        
-        <div>
-            <p>Lecciones, horas, moneda</p>
-        </div>
-
-        <v-card-text>
-          <div class="font-weight-bold ml-8 mb-2">
-            Today
+          <div style="width:70%" class="ml-4 pr-0">
+            <p class="title white--text pr-5 mb-0" >
+              Big Data
+            </p>
+            <p class="white--text font-weight-light">
+              Curso
+            </p>
           </div>
 
+          <div class="pr-4">
+            <v-img
+              width="65"
+              src="../assets/focus1.png"
+            >
+            </v-img>
+          </div>
+
+        </div>
+
+        <p class="body-2 white--text font-weight-light ml-4 pr-5 mb-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet nulla enim duis sit viverra tincidunt tempus.
+            Suscipit cursus sit lobortis magna vivamus. 
+        </p>
+          
+        <div class="d-flex ml-3 justify-space-around mr-10">
+
+          <div class="d-flex">
+            <div>
+              <v-img
+                width="25"
+                src="../assets/lesson.png"
+              >
+              </v-img>
+            </div>
+            <p class="caption white--text font-weight-light mt-1 pl-1">8 lecciones</p>
+          </div>
+
+          <div class="d-flex">
+            <div class="mt-1">
+              <v-img  
+                width="19"
+                src="../assets/clock.png"
+              >
+              </v-img>  
+            </div>
+            <p class="caption white--text font-weight-light mt-1 pl-1">1 hora</p>
+          </div>
+
+          <div class="d-flex">
+            <div >
+              <v-img 
+                width="24"
+                src="../assets/coins.png"
+              >
+              </v-img>  
+            </div>
+            <p class="caption white--text font-weight-light mt-1 pl-1">220 kcoind</p>
+          </div>
+            
+        </div>
+
+        <v-card-text class="pl-0 pt-0 pb-0">
           <v-timeline
             align-top
             dense
+            class="pt-0"
           >
+
             <v-timeline-item
-      
+              color="white lighten-1"
               small
+              class="pb-2 ml-0"
             >
-              <div>
-                <div class="font-weight-normal">
-                  <strong>Tema1</strong>
-                </div>
-              </div>
+              <v-row class="pt-1">
+                <v-col class="pl-0">
+                  <strong class="white--text font-weight-light">Tema 1</strong>
+                </v-col>
+              </v-row>
             </v-timeline-item>
+
+            <v-timeline-item
+              color="white"
+              small
+              class="pb-2"
+            >
+              <v-row class="pt-1">
+                <v-col class="pl-0">
+                  <strong class="white--text font-weight-light">Tema 2</strong>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+
+            <v-timeline-item
+              color="white"
+              small
+              class="pb-2"
+            >
+              <v-row class="pt-1">
+                <v-col class="pl-0">
+                  <strong class="white--text font-weight-light">Tema 3</strong>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+
+            <v-timeline-item
+              color="white"
+              small
+              class="pb-0"
+            >
+              <v-row class="pt-1">
+                <v-col class="pl-0">
+                  <strong class="white--text font-weight-light">Tema 4</strong>
+                </v-col>
+              </v-row>
+            </v-timeline-item>
+
           </v-timeline>
         </v-card-text>
+
+        <v-btn  
+          elevation="2"
+          depressed
+          color="secondary"
+          class="font-weight-light mt-3 mb-1 ml-15"
+        >
+          VER CURSO COMPLETO
+        </v-btn>
       </v-card>
-       </v-row>
+    </v-hover>
   </v-container>
 </template>
 
 <script>
 export default {
-    name: 'CourseSoonCard'
+    name: 'CourseSoonCard',
+    data() {
+      return {
+        transparent: 'rgba(255, 255, 255, 0)',
+      }
+    }
 }
 </script>
+
+<style scoped>
+  .v-card {
+    transition: opacity .5s ease-in-out;
+  }
+
+  .v-card:not(.on-hover) {
+    opacity: 0.5;
+  }
+</style>
