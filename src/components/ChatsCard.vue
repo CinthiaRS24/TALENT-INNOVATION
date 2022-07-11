@@ -23,7 +23,8 @@
                 elevation="2"
                 depressed 
                 width="100%"
-                class="text-capitalize font-weight-light mt-1">
+                class="text-capitalize font-weight-light mt-1"
+            >
                 Enviar mensaje
             </v-btn>
         </v-card>
@@ -45,7 +46,3 @@ export default {
     },
 }
 </script>
-
-<style>
-
-</style>
