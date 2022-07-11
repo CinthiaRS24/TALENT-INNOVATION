@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <v-btn small outlined color="white" class="font-weight-light ml-13 mt-6" @click="goToHome">
             <div >
                 <v-img
@@ -16,8 +17,9 @@
             Chat reciente
         </p>
     
-        <v-card class="text-center ml-12 rounded-lg" color="#23436b" width="900" height="440">
+        <v-card class="v-card__text my-list text-center ml-12 rounded-lg" color="#23436b" width="900" height="440">
             <div>
+                
                 <WelcomeMessage v-if="messages.length === 0" />
 
                 <ConversationMessage 
@@ -26,7 +28,6 @@
                     v-bind:key="'conversation-message-' + index"
                 />
 
-                <div ref="scrollable"></div>
             </div>
         </v-card>
 
@@ -46,7 +47,8 @@
                     small outlined 
                     color="primary" 
                     class="pl-0 pr-0 ml-1 mt-3" 
-                    min-width="25">
+                    min-width="25"
+                >
                     <v-img
                         width="10px"
                         src="../assets/attach.png"
@@ -62,6 +64,7 @@
                     >
                         Enviar
                     </v-btn>
+
                     <v-btn 
                         class="secondary rounded-lg mt-3 ml-2" 
                         small :disabled="messages.length === 0" 
@@ -80,7 +83,6 @@
 import firebase from 'firebase/compat/app';
 import ConversationMessage from '@/components/ConversationMessage.vue'
 import WelcomeMessage from '@/components/WelcomeMessage.vue'
-//import ChatBot from '@/chatbot/ChatBot'
 
 export default {
     name: 'MyConversation',
@@ -98,7 +100,6 @@ export default {
             user: firebase.auth().currentUser,
             db: firebase.firestore(),
             message: "",
-            //chatBot: new ChatBot(firebase.auth().currentUser.displayName, "NameTutor")
         }
     },
     methods: {
@@ -116,7 +117,6 @@ export default {
 
             await chatRef.add(userMessage);
 
-
             const botMessage = this.chatBot.reply(this.message);
             
             if (botMessage) {
@@ -125,10 +125,7 @@ export default {
             }
 
             this.message = "";
-
-            // this.$refs["scrollable"].scrollIntoView({behavior: "smooth"});
         },
-
         goToHome() {
             this.$router.push({
                 name: 'home'
@@ -136,8 +133,6 @@ export default {
         },
 
         clearChat() {
-            console.log('Deleting all messages in chat');
-
             firebase.firestore().collection(`users/${this.user.uid}/chats/${this.mentorUID}/messages`)
                 .get()
                 .then(querySnapshot => {
@@ -149,8 +144,14 @@ export default {
 </script>
 
 <style scoped>
-input::placeholder {
-  font-size: 15px;
-  font-style: italic;
-}
+    input::placeholder {
+    font-size: 15px;
+    font-style: italic;
+    }
+
+    .my-list {
+    
+        height: 440px;
+        overflow-y: auto;
+    }
 </style>
